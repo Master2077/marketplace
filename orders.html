@@ -1,0 +1,271 @@
+
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мои заказы — Marketplace</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/common.css" rel="stylesheet">
+  <link href="css/orders.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="index.html"><span class="brand-mark"><i class="bi bi-bag-fill"></i></span>MarketPlace</a>
+    <div class="side-label">Магазин</div>
+    <nav>
+      <a class="nav-link-custom" href="index.html"><i class="bi bi-house"></i><span>Главная</span></a>
+      <a class="nav-link-custom" href="catalog.html"><i class="bi bi-grid"></i><span>Каталог</span></a>
+      <a class="nav-link-custom" href="favorites.html"><i class="bi bi-heart"></i><span>Избранное</span></a>
+      <a class="nav-link-custom active" href="orders.html"><i class="bi bi-box-seam"></i><span>Мои заказы</span></a>
+    </nav>
+    <div class="side-label mt-3">Аккаунт</div>
+    <nav>
+      <a class="nav-link-custom" href="profile.html"><i class="bi bi-person-circle"></i><span>Профиль</span></a>
+      <a class="nav-link-custom" href="seller.html"><i class="bi bi-shop"></i><span>Страница автора</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a class="footer-link" href="contacts.html"><i class="bi bi-envelope"></i><span>Контакты</span></a>
+      <div class="copyright">© 2026 Marketplace<br>Покупайте у любимых авторов</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-top">
+      <div>
+        <h1 class="page-title">Мои заказы</h1>
+        <p class="page-subtitle">Управляйте покупками и отслеживайте свои заказы</p>
+      </div>
+      <div class="user-chip">
+        <img class="user-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=85" alt="Аватар пользователя">
+        <span>Мой аккаунт</span>
+        <i class="bi bi-chevron-down small"></i>
+      </div>
+    </header>
+
+    <section aria-labelledby="cart-heading">
+      <div class="section-heading">
+        <h2 class="section-title" id="cart-heading"><i class="bi bi-cart3"></i> Корзина</h2>
+        <span class="section-meta" id="cart-count">3 товара · 2 продавца</span>
+      </div>
+      <div class="panel cart-panel">
+        <div id="cart-groups">
+          <div class="seller-group" data-seller="tech">
+            <div class="seller-head">
+              <div class="seller-name-wrap">
+                <img class="seller-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="">
+                <div><p class="seller-name">TechWorld</p><div class="seller-caption">Магазин автора · Проверенный продавец</div></div>
+              </div>
+              <div class="seller-total">Сумма: <strong data-seller-total>8 490 ₽</strong></div>
+            </div>
+            <div class="cart-item" data-price="5490">
+              <input class="item-check" type="checkbox" checked aria-label="Выбрать беспроводные наушники">
+              <img class="product-image" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=240&h=220&fit=crop" alt="Беспроводные наушники">
+              <div><p class="product-title">Беспроводные наушники</p><p class="product-description">Цвет: чёрный · В наличии</p></div>
+              <div class="quantity-control"><button type="button" class="qty-minus" aria-label="Уменьшить количество">−</button><span class="quantity-value">1</span><button type="button" class="qty-plus" aria-label="Увеличить количество">+</button></div>
+              <div class="item-price">5 490 ₽</div>
+              <button class="remove-btn" type="button" aria-label="Удалить товар"><i class="bi bi-trash3"></i></button>
+            </div>
+            <div class="cart-item" data-price="3000">
+              <input class="item-check" type="checkbox" checked aria-label="Выбрать беспроводную мышь">
+              <img class="product-image" src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=240&h=220&fit=crop" alt="Беспроводная мышь">
+              <div><p class="product-title">Беспроводная мышь</p><p class="product-description">Цвет: графит · В наличии</p></div>
+              <div class="quantity-control"><button type="button" class="qty-minus" aria-label="Уменьшить количество">−</button><span class="quantity-value">1</span><button type="button" class="qty-plus" aria-label="Увеличить количество">+</button></div>
+              <div class="item-price">3 000 ₽</div>
+              <button class="remove-btn" type="button" aria-label="Удалить товар"><i class="bi bi-trash3"></i></button>
+            </div>
+          </div>
+
+          <div class="seller-group" data-seller="gamestore">
+            <div class="seller-head">
+              <div class="seller-name-wrap">
+                <img class="seller-avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377e9e?w=100&h=100&fit=crop&crop=faces" alt="">
+                <div><p class="seller-name">GameStore</p><div class="seller-caption">Магазин автора · Игровые аксессуары</div></div>
+              </div>
+              <div class="seller-total">Сумма: <strong data-seller-total>7 200 ₽</strong></div>
+            </div>
+            <div class="cart-item" data-price="7200">
+              <input class="item-check" type="checkbox" checked aria-label="Выбрать игровую клавиатуру">
+              <img class="product-image" src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=240&h=220&fit=crop" alt="Игровая клавиатура">
+              <div><p class="product-title">Механическая клавиатура</p><p class="product-description">Подсветка RGB · В наличии</p></div>
+              <div class="quantity-control"><button type="button" class="qty-minus" aria-label="Уменьшить количество">−</button><span class="quantity-value">1</span><button type="button" class="qty-plus" aria-label="Увеличить количество">+</button></div>
+              <div class="item-price">7 200 ₽</div>
+              <button class="remove-btn" type="button" aria-label="Удалить товар"><i class="bi bi-trash3"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="empty-cart" id="empty-cart"><i class="bi bi-cart-x"></i><strong>В корзине пока пусто</strong>Добавьте товары из каталога, чтобы оформить покупку.</div>
+
+        <div class="cart-footer" id="cart-footer">
+          <div class="cart-hint"><i class="bi bi-info-circle me-1"></i> Товары от разных авторов оформляются одной покупкой. После оформления заказ будет разделён на отдельные части для каждого продавца.</div>
+          <div class="summary-box">
+            <div class="summary-row"><span>Выбрано товаров</span><span id="selected-count">3 шт.</span></div>
+            <div class="summary-row"><span>Продавцов</span><span id="selected-sellers">2</span></div>
+            <div class="summary-total"><span>Итого</span><strong id="grand-total">15 690 ₽</strong></div>
+            <button class="btn-accent" id="checkout-btn" type="button">Перейти к оформлению <i class="bi bi-arrow-right ms-1"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-section" aria-labelledby="history-heading">
+      <div class="section-heading">
+        <h2 class="section-title" id="history-heading"><i class="bi bi-clock-history"></i> История покупок</h2>
+        <div class="history-toolbar">
+          <div class="search-box"><i class="bi bi-search"></i><input id="order-search" type="search" placeholder="Название товара..." aria-label="Поиск по названию товара"></div>
+          <select class="filter-select" id="status-filter" aria-label="Фильтр по статусу">
+            <option value="all">Все статусы</option><option value="delivered">Доставлен</option><option value="shipped">Отправлен</option><option value="processing">Обрабатывается</option><option value="cancelled">Отменён</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="orders-list">
+        <article class="panel order-card" data-order="№1024" data-products="беспроводные наушники коврик для мыши игровая мышь" data-status="delivered">
+          <div class="order-main">
+            <div><div class="order-number">Заказ №1024</div><div class="order-date">18 ноября 2026 · 14:32</div></div>
+            <div><span class="status delivered">Доставлен</span><div class="order-detail mt-2">3 товара · 2 продавца</div></div>
+            <div><div class="order-detail">Сумма заказа</div><div class="order-price">8 500 ₽</div></div>
+            <button class="details-btn" type="button">Подробнее <i class="bi bi-chevron-down ms-1"></i></button>
+          </div>
+          <div class="order-expanded">
+            <div class="expanded-line"><span>Беспроводные наушники — TechWorld</span><strong>5 490 ₽</strong></div>
+            <div class="expanded-line"><span>Коврик для мыши — GameStore</span><strong>1 010 ₽</strong></div>
+            <div class="expanded-line"><span>Игровая мышь — GameStore</span><strong>2 000 ₽</strong></div>
+            <div class="expanded-line"><span>Способ оплаты</span><strong>Банковская карта</strong></div>
+          </div>
+        </article>
+
+        <article class="panel order-card" data-order="№1023" data-products="игровая мышь" data-status="shipped">
+          <div class="order-main">
+            <div><div class="order-number">Заказ №1023</div><div class="order-date">12 ноября 2026 · 10:15</div></div>
+            <div><span class="status shipped">Отправлен</span><div class="order-detail mt-2">1 товар · 1 продавец</div></div>
+            <div><div class="order-detail">Сумма заказа</div><div class="order-price">2 000 ₽</div></div>
+            <button class="details-btn" type="button">Подробнее <i class="bi bi-chevron-down ms-1"></i></button>
+          </div>
+          <div class="order-expanded">
+            <div class="expanded-line"><span>Игровая мышь — GameStore</span><strong>2 000 ₽</strong></div>
+            <div class="expanded-line"><span>Способ оплаты</span><strong>Банковская карта</strong></div>
+            <div class="expanded-line"><span>Доставка</span><strong>В пути</strong></div>
+          </div>
+        </article>
+
+        <article class="panel order-card" data-order="№1022" data-products="беспроводные наушники чехол для наушников" data-status="processing">
+          <div class="order-main">
+            <div><div class="order-number">Заказ №1022</div><div class="order-date">8 ноября 2026 · 18:47</div></div>
+            <div><span class="status processing">Обрабатывается</span><div class="order-detail mt-2">2 товара · 1 продавец</div></div>
+            <div><div class="order-detail">Сумма заказа</div><div class="order-price">6 790 ₽</div></div>
+            <button class="details-btn" type="button">Подробнее <i class="bi bi-chevron-down ms-1"></i></button>
+          </div>
+          <div class="order-expanded">
+            <div class="expanded-line"><span>Беспроводные наушники — TechWorld</span><strong>5 490 ₽</strong></div>
+            <div class="expanded-line"><span>Чехол для наушников — TechWorld</span><strong>1 300 ₽</strong></div>
+            <div class="expanded-line"><span>Статус</span><strong>Продавец готовит заказ</strong></div>
+          </div>
+        </article>
+
+        <article class="panel order-card" data-order="№1021" data-products="подставка для телефона" data-status="cancelled">
+          <div class="order-main">
+            <div><div class="order-number">Заказ №1021</div><div class="order-date">2 ноября 2026 · 09:20</div></div>
+            <div><span class="status cancelled">Отменён</span><div class="order-detail mt-2">1 товар · 1 продавец</div></div>
+            <div><div class="order-detail">Сумма заказа</div><div class="order-price">1 490 ₽</div></div>
+            <button class="details-btn" type="button">Подробнее <i class="bi bi-chevron-down ms-1"></i></button>
+          </div>
+          <div class="order-expanded">
+            <div class="expanded-line"><span>Подставка для телефона — TechWorld</span><strong>1 490 ₽</strong></div>
+            <div class="expanded-line"><span>Причина</span><strong>Отмена покупателем</strong></div>
+          </div>
+        </article>
+      </div>
+      <div class="panel no-orders" id="no-orders">Покупки с таким названием не найдены. Попробуйте изменить запрос или фильтр.</div>
+    </section>
+  </main>
+</div>
+
+<script>
+  const money = value => new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
+
+  function updateCart(){
+    let total=0, count=0, sellers=0;
+    document.querySelectorAll('.seller-group').forEach(group=>{
+      let sellerTotal=0, hasSelected=false, hasItems=false;
+      group.querySelectorAll('.cart-item').forEach(item=>{
+        hasItems=true;
+        const qty=Number(item.querySelector('.quantity-value').textContent);
+        const price=Number(item.dataset.price);
+        const checked=item.querySelector('.item-check').checked;
+        item.querySelector('.item-price').textContent=money(price*qty);
+        if(checked){sellerTotal+=price*qty;count+=qty;hasSelected=true;}
+      });
+      group.querySelector('[data-seller-total]').textContent=money(
+        [...group.querySelectorAll('.cart-item')].reduce((sum,item)=>{
+          return sum + (item.querySelector('.item-check').checked ? Number(item.dataset.price)*Number(item.querySelector('.quantity-value').textContent) : 0);
+        },0)
+      );
+      if(hasSelected)sellers++;
+      group.style.display=hasItems?'':'none';
+      total+=sellerTotal;
+    });
+    document.getElementById('grand-total').textContent=money(total);
+    document.getElementById('selected-count').textContent=count+' шт.';
+    document.getElementById('selected-sellers').textContent=sellers;
+    const allItems=document.querySelectorAll('.cart-item').length;
+    document.getElementById('cart-count').textContent=allItems+' '+(allItems===1?'товар':allItems<5?'товара':'товаров')+' · '+document.querySelectorAll('.seller-group:not([style*="display: none"])').length+' продавца';
+    document.getElementById('empty-cart').style.display=allItems===0?'block':'none';
+    document.getElementById('cart-footer').style.display=allItems===0?'none':'grid';
+    document.getElementById('checkout-btn').disabled=count===0;
+  }
+
+  document.getElementById('cart-groups').addEventListener('click',event=>{
+    const item=event.target.closest('.cart-item');
+    if(!item)return;
+    const qtyEl=item.querySelector('.quantity-value');
+    let qty=Number(qtyEl.textContent);
+    if(event.target.closest('.qty-plus'))qty++;
+    if(event.target.closest('.qty-minus'))qty=Math.max(1,qty-1);
+    if(event.target.closest('.qty-plus')||event.target.closest('.qty-minus'))qtyEl.textContent=qty;
+    if(event.target.closest('.remove-btn')){
+      item.remove();
+      const group=item.closest('.seller-group');
+      if(group&&!group.querySelector('.cart-item'))group.remove();
+    }
+    updateCart();
+  });
+  document.getElementById('cart-groups').addEventListener('change',event=>{
+    if(event.target.classList.contains('item-check'))updateCart();
+  });
+  document.getElementById('checkout-btn').addEventListener('click',()=>{
+    alert('Это демонстрационный макет. Подключение оформления заказа появится на следующем этапе разработки.');
+  });
+
+  document.querySelectorAll('.details-btn').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const expanded=button.closest('.order-card').querySelector('.order-expanded');
+      expanded.classList.toggle('open');
+      const isOpen=expanded.classList.contains('open');
+      button.innerHTML=isOpen?'Свернуть <i class="bi bi-chevron-up ms-1"></i>':'Подробнее <i class="bi bi-chevron-down ms-1"></i>';
+    });
+  });
+
+  function filterOrders(){
+    const query=document.getElementById('order-search').value.trim().toLowerCase();
+    const status=document.getElementById('status-filter').value;
+    let visible=0;
+    document.querySelectorAll('.order-card').forEach(card=>{
+      const searchableText=(card.dataset.products || '').toLowerCase();
+      const matchesQuery=searchableText.includes(query);
+      const matchesStatus=status==='all'||card.dataset.status===status;
+      card.style.display=matchesQuery&&matchesStatus?'':'none';
+      if(matchesQuery&&matchesStatus)visible++;
+    });
+    document.getElementById('no-orders').style.display=visible===0?'block':'none';
+  }
+  document.getElementById('order-search').addEventListener('input',filterOrders);
+  document.getElementById('status-filter').addEventListener('change',filterOrders);
+  updateCart();
+</script>
+</body>
+</html>

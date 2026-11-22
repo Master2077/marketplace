@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль пользователя — MarketPlace</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="css/common.css" rel="stylesheet">
+  <link href="css/profile.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Боковое меню — единое для всех страниц проекта -->
+  <aside class="sidebar">
+    <a class="brand" href="index.html"><span class="brand-mark"><i class="bi bi-bag-fill"></i></span>MarketPlace</a>
+    <div class="side-label">Магазин</div>
+    <nav>
+      <a class="nav-link-custom" href="index.html"><i class="bi bi-house"></i><span>Главная</span></a>
+      <a class="nav-link-custom" href="catalog.html"><i class="bi bi-grid"></i><span>Каталог</span></a>
+      <a class="nav-link-custom" href="favorites.html"><i class="bi bi-heart"></i><span>Избранное</span></a>
+      <a class="nav-link-custom" href="orders.html"><i class="bi bi-box-seam"></i><span>Мои заказы</span></a>
+    </nav>
+    <div class="side-label mt-3">Аккаунт</div>
+    <nav>
+      <a class="nav-link-custom active" href="profile.html"><i class="bi bi-person-circle"></i><span>Профиль</span></a>
+      <a class="nav-link-custom" href="seller.html"><i class="bi bi-shop"></i><span>Страница автора</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a class="footer-link" href="contacts.html"><i class="bi bi-envelope"></i><span>Контакты</span></a>
+      <div class="copyright">© 2026 Marketplace<br>Покупайте у любимых авторов</div>
+    </div>
+  </aside>
+
+  <!-- Основная область -->
+  <main class="main-content">
+
+    <!-- Верхняя панель: аватар слева, настройки справа -->
+    <div class="topbar">
+      <img
+        class="avatar"
+        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&h=300&q=85"
+        alt="Аватар пользователя"
+      >
+
+      <button class="topbar-icon settings-btn"
+              id="settingsButton"
+              title="Настройки"
+              aria-label="Настройки">
+        <i class="bi bi-gear"></i>
+      </button>
+    </div>
+
+    <!-- Профиль пользователя -->
+    <section class="profile-info">
+      <h1>Александр</h1>
+      <div class="profile-handle">@alexander</div>
+      <div class="registration-date">На платформе с ноября 2026</div>
+
+      <div class="user-stats">
+        <a class="stat-item" href="favorites.html">
+          <strong>3</strong>
+          <span>Избранное</span>
+        </a>
+
+        <a class="stat-item" href="orders.html">
+          <strong>3</strong>
+          <span>Покупок</span>
+        </a>
+
+        <div class="stat-item">
+          <strong>2</strong>
+          <span>Отзыва</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ожидаемые доставки -->
+    <section class="delivery-section">
+      <div class="section-heading">
+        <div>
+          <h2>Ожидаемые доставки</h2>
+          <p>Товары, которые скоро должны прибыть</p>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevDelivery"
+                  aria-label="Предыдущие товары">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+
+          <button class="carousel-btn" id="nextDelivery"
+                  aria-label="Следующие товары">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="delivery-track" id="deliveryTrack">
+
+        <article class="delivery-card">
+          <img
+            class="delivery-image"
+            src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=600"
+            alt="Игровая мышь"
+          >
+
+          <div class="delivery-body">
+            <h3>Игровая мышь</h3>
+            <div class="delivery-meta">Заказ №1023 · GameStore</div>
+            <span class="delivery-status">В пути</span>
+            <div class="delivery-date">
+              <i class="bi bi-calendar3"></i>
+              Ожидается 21 ноября
+            </div>
+          </div>
+        </article>
+
+        <article class="delivery-card">
+          <img
+            class="delivery-image"
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
+            alt="Беспроводные наушники"
+          >
+
+          <div class="delivery-body">
+            <h3>Беспроводные наушники</h3>
+            <div class="delivery-meta">Заказ №1022 · TechWorld</div>
+            <span class="delivery-status">Обрабатывается</span>
+            <div class="delivery-date">
+              <i class="bi bi-calendar3"></i>
+              Ожидается 24 ноября
+            </div>
+          </div>
+        </article>
+
+        <article class="delivery-card">
+          <img
+            class="delivery-image"
+            src="https://images.unsplash.com/photo-1595225476474-87563907a212?w=600"
+            alt="Механическая клавиатура"
+          >
+
+          <div class="delivery-body">
+            <h3>Механическая клавиатура</h3>
+            <div class="delivery-meta">Заказ №1027 · GameStore</div>
+            <span class="delivery-status">В пути</span>
+            <div class="delivery-date">
+              <i class="bi bi-calendar3"></i>
+              Ожидается 26 ноября
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Быстрые переходы -->
+    <section>
+      <div class="section-heading">
+        <div>
+          <h2>Мой аккаунт</h2>
+          <p>Быстрый доступ к разделам профиля</p>
+        </div>
+      </div>
+
+      <div class="quick-links">
+
+        <a href="orders.html" class="quick-card">
+          <div class="quick-icon">
+            <i class="bi bi-clock-history"></i>
+          </div>
+
+          <div>
+            <h3>История покупок</h3>
+            <p>Все ваши заказы и их статусы</p>
+          </div>
+        </a>
+
+        <a href="favorites.html" class="quick-card">
+          <div class="quick-icon">
+            <i class="bi bi-heart"></i>
+          </div>
+
+          <div>
+            <h3>Избранное</h3>
+            <p>Товары, которые вы сохранили</p>
+          </div>
+        </a>
+
+        <div class="quick-card reviews-placeholder">
+          <div class="quick-icon">
+            <i class="bi bi-star"></i>
+          </div>
+
+          <div>
+            <h3>Мои отзывы</h3>
+            <p>Раздел появится позже</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="demo-note">
+      Информация на странице является демонстрационной
+    </div>
+
+  </main>
+
+  <script>
+    // Горизонтальная карусель доставок
+    const deliveryTrack = document.getElementById('deliveryTrack');
+
+    document.getElementById('prevDelivery').addEventListener('click', () => {
+      deliveryTrack.scrollBy({
+        left: -290,
+        behavior: 'smooth'
+      });
+    });
+
+    document.getElementById('nextDelivery').addEventListener('click', () => {
+      deliveryTrack.scrollBy({
+        left: 290,
+        behavior: 'smooth'
+      });
+    });
+
+    // Пока настройки не подключены
+    document.getElementById('settingsButton').addEventListener('click', () => {
+      alert('Раздел настроек будет добавлен позже.');
+    });
+  </script>
+
+</body>
+</html>

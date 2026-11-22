@@ -1,0 +1,371 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Страница автора — MarketPlace</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <link href="css/common.css" rel="stylesheet">
+  <link href="css/seller.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Боковая навигация — единая для всех страниц проекта -->
+  <aside class="sidebar">
+    <a class="brand" href="index.html"><span class="brand-mark"><i class="bi bi-bag-fill"></i></span>MarketPlace</a>
+    <div class="side-label">Магазин</div>
+    <nav>
+      <a class="nav-link-custom" href="index.html"><i class="bi bi-house"></i><span>Главная</span></a>
+      <a class="nav-link-custom" href="catalog.html"><i class="bi bi-grid"></i><span>Каталог</span></a>
+      <a class="nav-link-custom" href="favorites.html"><i class="bi bi-heart"></i><span>Избранное</span></a>
+      <a class="nav-link-custom" href="orders.html"><i class="bi bi-box-seam"></i><span>Мои заказы</span></a>
+    </nav>
+    <div class="side-label mt-3">Аккаунт</div>
+    <nav>
+      <a class="nav-link-custom" href="profile.html"><i class="bi bi-person-circle"></i><span>Профиль</span></a>
+      <a class="nav-link-custom active" href="seller.html"><i class="bi bi-shop"></i><span>Страница автора</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a class="footer-link" href="contacts.html"><i class="bi bi-envelope"></i><span>Контакты</span></a>
+      <div class="copyright">© 2026 Marketplace<br>Покупайте у любимых авторов</div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="topbar">
+      <input
+        class="search-box"
+        type="search"
+        placeholder="Поиск товаров и продавцов"
+        aria-label="Поиск товаров и продавцов"
+      >
+    </div>
+
+    <!-- Обложка профиля и аватарка -->
+    <section aria-label="Профиль блогера">
+      <div class="profile-cover">
+        <span class="cover-caption">Обложка профиля</span>
+        <img
+          class="profile-avatar"
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=85"
+          alt="Аватар блогера"
+        >
+      </div>
+
+      <div class="profile-heading">
+        <h1 class="profile-name">
+          Алексей Волков
+          <span class="verified-label">✓ Проверенный автор</span>
+        </h1>
+        <div class="profile-handle">@alex_volkov</div>
+
+        <p class="profile-description">
+          Создаю видео о технологиях, играх и повседневной жизни.
+          Здесь собрал свой мерч и вещи, которые сам использую и рекомендую.
+        </p>
+
+        <div class="profile-actions">
+          <button class="btn subscribe-button" id="subscribeButton" type="button">
+            + Подписаться
+          </button>
+        </div>
+
+        <!-- Демонстрационные ссылки. В будущем блогер сможет указать свои адреса -->
+        <nav class="social-links" aria-label="Социальные сети блогера">
+          <a class="social-link" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">▶</span> YouTube
+          </a>
+          <a class="social-link" href="https://t.me/" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">➤</span> Telegram
+          </a>
+          <a class="social-link" href="https://www.twitch.tv/" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">T</span> Twitch
+          </a>
+          <a class="social-link" href="https://vk.com/" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">ᴠ</span> VK
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Репутация и статистика -->
+    <section class="overview-grid" aria-label="Рейтинг и статистика блогера">
+      <article class="info-panel">
+        <h2 class="panel-title">Рейтинг продавца</h2>
+
+        <div class="rating-topline">
+          <div class="rating-value">94<small> / 100</small></div>
+          <span class="rating-status">● Отлично</span>
+        </div>
+
+        <div class="rating-meter" role="img" aria-label="Рейтинг 94 из 100">
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span>
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span>
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span>
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
+        </div>
+
+        <div class="meter-labels">
+          <span>0</span>
+          <span>25</span>
+          <span>50</span>
+          <span>75</span>
+          <span>100</span>
+        </div>
+
+        <p class="rating-note">
+          Общая оценка надёжности продавца на основе отзывов и качества обслуживания.
+        </p>
+      </article>
+
+      <article class="info-panel">
+        <h2 class="panel-title">Информация о блогере</h2>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">На площадке с</span>
+            <span class="stat-value">2024 года</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Товаров</span>
+            <span class="stat-value">24</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Продаж</span>
+            <span class="stat-value">1 420</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Подписчиков</span>
+            <span class="stat-value">18,6 тыс.</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Панель фильтров — отдельная горизонтальная зона -->
+    <section class="filters-panel" aria-labelledby="filters-title">
+      <div class="filters-heading">
+        <h2 id="filters-title">Товары блогера</h2>
+        <button class="reset-filters" id="resetFilters" type="button">Сбросить фильтры</button>
+      </div>
+
+      <div class="filter-row">
+        <div class="filter-field">
+          <label for="categoryFilter">Категория</label>
+          <select class="dark-control" id="categoryFilter">
+            <option value="all">Все категории</option>
+            <option value="clothes">Одежда</option>
+            <option value="accessories">Аксессуары</option>
+            <option value="collectibles">Коллекционные товары</option>
+          </select>
+        </div>
+
+        <div class="filter-field">
+          <label for="minPrice">Цена от, ₽</label>
+          <input class="dark-control" id="minPrice" type="number" min="0" placeholder="0">
+        </div>
+
+        <div class="filter-field">
+          <label for="maxPrice">Цена до, ₽</label>
+          <input class="dark-control" id="maxPrice" type="number" min="0" placeholder="Без лимита">
+        </div>
+
+        <div class="filter-field">
+          <label for="sortFilter">Сортировка</label>
+          <select class="dark-control" id="sortFilter">
+            <option value="popular">Сначала популярные</option>
+            <option value="cheap">Сначала дешевле</option>
+            <option value="expensive">Сначала дороже</option>
+            <option value="newest">Сначала новинки</option>
+          </select>
+        </div>
+
+        <div class="filter-field">
+          <label for="productSearch">Поиск по товарам</label>
+          <input class="dark-control" id="productSearch" type="search" placeholder="Название товара...">
+        </div>
+      </div>
+    </section>
+
+    <!-- Каталог демонстрационных товаров -->
+    <section aria-labelledby="products-title">
+      <div class="products-heading">
+        <h2 id="products-title">Магазин автора</h2>
+        <span class="products-count" id="productsCount">Показано 6 товаров</span>
+      </div>
+
+      <div class="row row-cols-2 row-cols-lg-3 row-cols-xxl-4 g-3" id="productsGrid">
+        <div class="col product-item" data-category="clothes" data-price="2990" data-popularity="98" data-date="6">
+          <article class="product-card">
+            <img class="product-image" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=85" alt="Футболка с авторским принтом">
+            <div class="product-category">Одежда</div>
+            <h3 class="product-title">Футболка с авторским принтом</h3>
+            <p class="product-description">Фирменный мерч канала, хлопок 100%.</p>
+            <div class="product-bottom">
+              <span class="product-price">2 990 ₽</span>
+              <button class="product-favorite" type="button" aria-label="Добавить в избранное">♡</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col product-item" data-category="accessories" data-price="1490" data-popularity="90" data-date="5">
+          <article class="product-card">
+            <img class="product-image" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85" alt="Наручные часы">
+            <div class="product-category">Аксессуары</div>
+            <h3 class="product-title">Минималистичные часы</h3>
+            <p class="product-description">Лаконичный аксессуар на каждый день.</p>
+            <div class="product-bottom">
+              <span class="product-price">1 490 ₽</span>
+              <button class="product-favorite" type="button" aria-label="Добавить в избранное">♡</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col product-item" data-category="collectibles" data-price="3990" data-popularity="85" data-date="4">
+          <article class="product-card">
+            <img class="product-image" src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=600&q=85" alt="Коллекционный постер">
+            <div class="product-category">Коллекционные товары</div>
+            <h3 class="product-title">Коллекционный постер</h3>
+            <p class="product-description">Лимитированный выпуск с автографом.</p>
+            <div class="product-bottom">
+              <span class="product-price">3 990 ₽</span>
+              <button class="product-favorite" type="button" aria-label="Добавить в избранное">♡</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col product-item" data-category="clothes" data-price="4590" data-popularity="96" data-date="3">
+          <article class="product-card">
+            <img class="product-image" src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=85" alt="Худи с логотипом">
+            <div class="product-category">Одежда</div>
+            <h3 class="product-title">Худи с логотипом канала</h3>
+            <p class="product-description">Тёплое худи свободного кроя.</p>
+            <div class="product-bottom">
+              <span class="product-price">4 590 ₽</span>
+              <button class="product-favorite" type="button" aria-label="Добавить в избранное">♡</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col product-item" data-category="accessories" data-price="890" data-popularity="76" data-date="2">
+          <article class="product-card">
+            <img class="product-image" src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=85" alt="Бутылка для воды">
+            <div class="product-category">Аксессуары</div>
+            <h3 class="product-title">Бутылка для воды</h3>
+            <p class="product-description">Многоразовая бутылка с символикой автора.</p>
+            <div class="product-bottom">
+              <span class="product-price">890 ₽</span>
+              <button class="product-favorite" type="button" aria-label="Добавить в избранное">♡</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col product-item" data-category="collectibles" data-price="1990" data-popularity="82" data-date="1">
+          <article class="product-card">
+            <img class="product-image" src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=600&q=85" alt="Подарочный набор">
+            <div class="product-category">Коллекционные товары</div>
+            <h3 class="product-title">Подарочный набор автора</h3>
+            <p class="product-description">Небольшая коллекция фирменных вещей.</p>
+            <div class="product-bottom">
+              <span class="product-price">1 990 ₽</span>
+              <button class="product-favorite" type="button" aria-label="Добавить в избранное">♡</button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <strong>Товары не найдены</strong>
+        Попробуйте изменить категорию, цену или поисковый запрос.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Демонстрационное поведение страницы. Данные пока хранятся прямо в HTML.
+    const productItems = Array.from(document.querySelectorAll(".product-item"));
+    const categoryFilter = document.getElementById("categoryFilter");
+    const minPrice = document.getElementById("minPrice");
+    const maxPrice = document.getElementById("maxPrice");
+    const sortFilter = document.getElementById("sortFilter");
+    const productSearch = document.getElementById("productSearch");
+    const productsGrid = document.getElementById("productsGrid");
+    const productsCount = document.getElementById("productsCount");
+    const emptyState = document.getElementById("emptyState");
+
+    function applyFilters() {
+      const category = categoryFilter.value;
+      const min = minPrice.value === "" ? 0 : Number(minPrice.value);
+      const max = maxPrice.value === "" ? Infinity : Number(maxPrice.value);
+      const search = productSearch.value.trim().toLowerCase();
+
+      const visibleItems = [];
+
+      productItems.forEach((item) => {
+        const itemCategory = item.dataset.category;
+        const price = Number(item.dataset.price);
+        const title = item.querySelector(".product-title").textContent.toLowerCase();
+
+        const matchesCategory = category === "all" || category === itemCategory;
+        const matchesPrice = price >= min && price <= max;
+        const matchesSearch = title.includes(search);
+        const isVisible = matchesCategory && matchesPrice && matchesSearch;
+
+        item.style.display = isVisible ? "" : "none";
+        if (isVisible) visibleItems.push(item);
+      });
+
+      const sort = sortFilter.value;
+      visibleItems.sort((a, b) => {
+        if (sort === "cheap") return Number(a.dataset.price) - Number(b.dataset.price);
+        if (sort === "expensive") return Number(b.dataset.price) - Number(a.dataset.price);
+        if (sort === "newest") return Number(b.dataset.date) - Number(a.dataset.date);
+        return Number(b.dataset.popularity) - Number(a.dataset.popularity);
+      });
+
+      visibleItems.forEach((item) => productsGrid.appendChild(item));
+
+      productsCount.textContent = `Показано ${visibleItems.length} из ${productItems.length} товаров`;
+      emptyState.style.display = visibleItems.length ? "none" : "block";
+    }
+
+    [categoryFilter, minPrice, maxPrice, sortFilter, productSearch].forEach((control) => {
+      control.addEventListener("input", applyFilters);
+      control.addEventListener("change", applyFilters);
+    });
+
+    document.getElementById("resetFilters").addEventListener("click", () => {
+      categoryFilter.value = "all";
+      minPrice.value = "";
+      maxPrice.value = "";
+      sortFilter.value = "popular";
+      productSearch.value = "";
+      applyFilters();
+    });
+
+    // Кнопка подписки меняет только своё отображение в текущем открытии страницы.
+    const subscribeButton = document.getElementById("subscribeButton");
+    subscribeButton.addEventListener("click", () => {
+      const isFollowing = subscribeButton.classList.toggle("is-following");
+      subscribeButton.textContent = isFollowing ? "✓ Вы подписаны" : "+ Подписаться";
+    });
+
+    // Демонстрационная кнопка избранного: без сохранения на сервере.
+    document.querySelectorAll(".product-favorite").forEach((button) => {
+      button.addEventListener("click", () => {
+        const isFavorite = button.classList.toggle("is-favorite");
+        button.textContent = isFavorite ? "♥" : "♡";
+      });
+    });
+
+    applyFilters();
+  </script>
+</body>
+</html>

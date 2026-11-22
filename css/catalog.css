@@ -1,0 +1,305 @@
+/* MarketPlace — каталог продавцов
+   Базовые стили и меню — в common.css */
+
+:root {
+  --panel: #1c1c1c;
+  --panel-hover: #272727;
+  --muted: #aaa;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+
+main {
+  min-height: 100vh;
+  margin-left: 240px;
+  padding: 26px 32px 48px;
+}
+
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+
+.search-box {
+  box-sizing: border-box;
+  width: min(500px, 100%);
+  padding: 11px 16px;
+  border: 1px solid #333;
+  border-radius: 24px;
+  outline: none;
+  background: #242424;
+  color: #fff;
+}
+
+
+.search-box::placeholder {
+  color: #aaa;
+}
+
+
+.page-title {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+
+.page-description {
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+.category-list {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 34px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+
+.category-chip {
+  flex: 0 0 auto;
+  padding: 9px 16px;
+  border: 1px solid #3a3a3a;
+  border-radius: 22px;
+  background: #202020;
+  color: #ddd;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+
+.category-chip:hover,
+.category-chip.active {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+
+.seller-count {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+.seller-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  isolation: isolate;
+}
+
+
+.seller-card img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+
+
+.seller-card::after {
+  position: absolute;
+  inset: 30% 0 0;
+  z-index: -1;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .88));
+  content: "";
+}
+
+
+.seller-card:hover img {
+  transform: scale(1.05);
+}
+
+
+.seller-card:hover {
+  outline: 2px solid var(--red);
+}
+
+
+.seller-info {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+}
+
+
+.seller-name {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+.seller-description {
+  margin-bottom: 10px;
+  color: #ddd;
+  font-size: 12px;
+}
+
+
+.seller-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #e5e5e5;
+  font-size: 11px;
+}
+
+
+.verified {
+  color: #ff7773;
+  white-space: nowrap;
+}
+
+
+.seller-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.sort-select {
+  width: auto;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  background-color: #202020;
+  color: #eee;
+  font-size: 13px;
+}
+
+
+.sort-select:focus {
+  border-color: var(--red);
+  box-shadow: none;
+}
+
+
+.more-section {
+  margin-top: 42px;
+  padding: 24px;
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  background: #181818;
+}
+
+
+.more-section h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+
+.more-section p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+@media (max-width: 767.98px) {
+
+
+  main {
+    padding: 20px 16px;
+  }
+
+
+  .page-title {
+    font-size: 26px;
+  }
+}
+
+
+@media (max-width: 575.98px) {
+
+
+  main {
+    padding: 16px 12px 32px;
+  }
+
+
+  .topbar {
+    align-items: stretch;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+
+  .seller-info {
+    right: 9px;
+    bottom: 9px;
+    left: 9px;
+  }
+
+
+  .seller-name {
+    font-size: 13px;
+  }
+
+
+  .seller-description {
+    font-size: 11px;
+  }
+
+
+  .seller-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+
+  .more-section {
+    padding: 16px;
+  }
+}

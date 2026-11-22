@@ -1,0 +1,404 @@
+/* MarketPlace — профиль покупателя
+   Базовые стили и меню — в common.css */
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+
+/* Основная область */
+.main-content {
+  margin-left: 240px;
+  padding: 30px 38px 50px;
+  min-height: 100vh;
+}
+
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+
+.topbar-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 20px;
+}
+
+
+.settings-btn {
+  cursor: pointer;
+  transition: .2s;
+}
+
+
+.settings-btn:hover {
+  background: var(--hover);
+  color: var(--accent);
+}
+
+
+/* Информация пользователя */
+.profile-info {
+  margin-bottom: 42px;
+}
+
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+}
+
+
+.profile-info h1 {
+  margin: 0 0 5px;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+
+.profile-handle {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+.registration-date {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+.user-stats {
+  display: flex;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+
+.stat-item {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+}
+
+
+.stat-item:hover {
+  color: var(--text);
+}
+
+
+.stat-item:hover strong {
+  color: var(--accent);
+}
+
+
+.stat-item strong {
+  display: block;
+  font-size: 21px;
+}
+
+
+.stat-item span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+
+/* Заголовки секций */
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+
+.section-heading h2 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0;
+}
+
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 5px 0 0;
+}
+
+
+/* Карусель доставок */
+.delivery-section {
+  margin-bottom: 42px;
+}
+
+
+.carousel-controls {
+  display: flex;
+  gap: 8px;
+}
+
+
+.carousel-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: white;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+
+.carousel-btn:hover {
+  background: var(--hover);
+  border-color: var(--accent);
+}
+
+
+.delivery-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+
+.delivery-track::-webkit-scrollbar {
+  display: none;
+}
+
+
+.delivery-card {
+  flex: 0 0 270px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+
+.delivery-image {
+  width: 100%;
+  height: 155px;
+  object-fit: cover;
+  background: #222;
+}
+
+
+.delivery-body {
+  padding: 15px;
+}
+
+
+.delivery-body h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+
+.delivery-meta {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+
+.delivery-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: rgba(229, 57, 53, .13);
+  color: #ff7773;
+  font-size: 12px;
+}
+
+
+.delivery-date {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+
+/* Быстрые разделы */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+
+.quick-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  text-decoration: none;
+  transition: .2s;
+  min-width: 0;
+}
+
+
+.quick-card:hover {
+  background: var(--hover);
+  border-color: #444;
+  transform: translateY(-2px);
+}
+
+
+.quick-icon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(229, 57, 53, .12);
+  color: var(--accent);
+  font-size: 21px;
+}
+
+
+.quick-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+
+.quick-card p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+}
+
+
+.reviews-placeholder {
+  cursor: default;
+}
+
+
+.reviews-placeholder:hover {
+  transform: none;
+  border-color: var(--border);
+}
+
+
+.demo-note {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+
+@media (max-width: 1000px) {
+
+  .quick-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .main-content {
+    margin-left: 70px;
+    padding: 22px 18px 40px;
+  }
+
+
+  .topbar {
+    margin-bottom: 16px;
+  }
+
+
+  .profile-info {
+    margin-bottom: 35px;
+  }
+
+
+  .avatar {
+    width: 78px;
+    height: 78px;
+  }
+
+
+  .section-heading h2 {
+    font-size: 18px;
+  }
+
+
+  .delivery-card {
+    flex-basis: 245px;
+  }
+
+
+  .quick-card {
+    padding: 16px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .main-content {
+    padding: 18px 13px 35px;
+  }
+
+
+  .user-stats {
+    gap: 22px;
+  }
+
+
+  .section-heading p {
+    font-size: 12px;
+  }
+
+
+  .carousel-controls {
+    gap: 5px;
+  }
+
+
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+  }
+}
