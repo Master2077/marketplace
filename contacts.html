@@ -45,7 +45,7 @@
         <h2 class="panel-title" id="form-title">Написать нам</h2>
         <p class="panel-hint">Заполните форму — мы свяжемся с вами по указанной почте.</p>
 
-        <form id="contactForm">
+        <form id="contactForm" method="post" action="/">
           <div class="form-field">
             <label for="contactName">Имя</label>
             <input class="dark-control" id="contactName" name="name" type="text" placeholder="Как к вам обращаться" required>
@@ -101,15 +101,7 @@
       </aside>
     </div>
 
-    <div class="demo-note">Форма демонстрационная: сообщения пока не отправляются на сервер</div>
+    <div class="demo-note">Данные формы отправляются на сервер и выводятся в консоли</div>
   </main>
-
-  <script>
-    // Демонстрационная форма: поля проверяет браузер, отправки на сервер нет.
-    document.getElementById('contactForm').addEventListener('submit', (event) => {
-      event.preventDefault();
-      alert('Это демонстрационный макет. Подключение отправки сообщений появится на следующем этапе разработки.');
-    });
-  </script>
 </body>
 </html>
