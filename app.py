@@ -1,26 +1,57 @@
-"""Курсовое задание: веб-приложение «Контакты» с приёмом GET и POST.
+"""Курсовое задание: веб-приложение MarketPlace с приёмом GET и POST.
 
-GET  — на любой запрос возвращается страница contacts.html.
+GET:
+    /                  — страница «Контакты» (как требует задание);
+    /index.html и др.  — остальные страницы макета;
+    /css/...           — стили страниц;
+    неизвестный адрес  — снова страница «Контакты».
+
 POST — данные формы читаются из тела запроса, печатаются в консоль,
        в ответ отправляется страница-подтверждение.
 
 Запуск:
     python app.py
 
-После запуска откройте http://127.0.0.1:8000/ — или любой другой адрес
-на этом порту, например http://127.0.0.1:8000/anything.
+После запуска откройте http://127.0.0.1:8000/ (контакты) или, например,
+http://127.0.0.1:8000/index.html — остальные страницы макета.
 """
 
 from html import escape
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
-from urllib.parse import parse_qs
+from urllib.parse import parse_qs, urlsplit
 
 HOST = "127.0.0.1"
 PORT = 8000
 
 BASE_DIR = Path(__file__).resolve().parent
-HTML_FILE = BASE_DIR / "contacts.html"
+CONTACTS_FILE = BASE_DIR / "contacts.html"
+
+# Маршруты страниц. Именно этот словарь и есть «маршрутизация»:
+# по адресу из строки браузера выбирается конкретный файл.
+PAGES = {
+    "/": CONTACTS_FILE,
+    "/contacts.html": CONTACTS_FILE,
+    "/index.html": BASE_DIR / "index.html",
+    "/catalog.html": BASE_DIR / "catalog.html",
+    "/favorites.html": BASE_DIR / "favorites.html",
+    "/orders.html": BASE_DIR / "orders.html",
+    "/profile.html": BASE_DIR / "profile.html",
+    "/seller.html": BASE_DIR / "seller.html",
+}
+
+# Типы файлов, которые сервер умеет отдавать.
+MIME_TYPES = {
+    ".html": "text/html; charset=utf-8",
+    ".css": "text/css; charset=utf-8",
+    ".js": "application/javascript; charset=utf-8",
+    ".json": "application/json; charset=utf-8",
+    ".svg": "image/svg+xml",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".ico": "image/x-icon",
+}
 
 # Русские подписи для полей формы (в консоли печатаются исходные имена полей).
 FIELD_LABELS = {
@@ -105,25 +136,60 @@ RESULT_PAGE = """<!DOCTYPE html>
 """
 
 
-class ContactsHandler(BaseHTTPRequestHandler):
-    """GET отдаёт страницу «Контакты», POST печатает данные формы в консоль."""
+class MarketplaceHandler(BaseHTTPRequestHandler):
+    """GET раздаёт страницы по маршрутам, POST печатает данные формы."""
 
     def do_GET(self):
-        # Читаем HTML-файл целиком через with open(), как требует задание.
-        with open(HTML_FILE, "r", encoding="utf-8") as file:
-            page = file.read()
-
-        self.send_page(page)
+        body, content_type = self.build_response(self.path)
+        self.send_body(body, content_type)
 
     def do_HEAD(self):
-        with open(HTML_FILE, "r", encoding="utf-8") as file:
-            page = file.read()
+        body, content_type = self.build_response(self.path)
 
-        body = page.encode("utf-8")
         self.send_response(200)
-        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
+
+    def build_response(self, raw_path):
+        """Возвращает (тело ответа, Content-Type) для запрошенного адреса."""
+        file_path = self.resolve_file(raw_path)
+        suffix = file_path.suffix.lower()
+
+        if suffix == ".html":
+            # HTML читаем через with open(), как требует задание.
+            with open(file_path, "r", encoding="utf-8") as file:
+                return file.read().encode("utf-8"), "text/html; charset=utf-8"
+
+        with open(file_path, "rb") as file:
+            return file.read(), MIME_TYPES.get(suffix, "application/octet-stream")
+
+    def resolve_file(self, raw_path):
+        """Превращает адрес из браузера в путь к файлу на диске."""
+        path = urlsplit(raw_path).path
+
+        # Известные страницы — по словарю маршрутов.
+        if path in PAGES:
+            return PAGES[path]
+
+        # Остальные файлы (css, картинки) — если лежат внутри папки проекта.
+        candidate = (BASE_DIR / path.lstrip("/")).resolve()
+        if (
+            candidate.is_file()
+            and candidate.is_relative_to(BASE_DIR)
+            and candidate.suffix.lower() in MIME_TYPES
+        ):
+            return candidate
+
+        # Неизвестный адрес — страница «Контакты» (условие задания).
+        return CONTACTS_FILE
+
+    def send_body(self, body, content_type):
+        self.send_response(200)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
 
     def do_POST(self):
         # 1. Читаем тело запроса: длина указана в заголовке Content-Length.
@@ -160,20 +226,16 @@ class ContactsHandler(BaseHTTPRequestHandler):
         print("=" * 60)
 
         # 4. Отправляем страницу-подтверждение с принятыми данными.
+        #    Значения экранируются: пользовательский текст не может
+        #    превратиться в HTML-тег или скрипт.
         rows = "".join(
             f"<dt>{escape(FIELD_LABELS.get(key, key))}</dt><dd>{escape(value)}</dd>"
             for key, value in fields
         )
-        self.send_page(RESULT_PAGE.replace("{rows}", rows))
-
-    def send_page(self, page):
-        body = page.encode("utf-8")
-
-        self.send_response(200)
-        self.send_header("Content-Type", "text/html; charset=utf-8")
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
+        self.send_body(
+            RESULT_PAGE.replace("{rows}", rows).encode("utf-8"),
+            "text/html; charset=utf-8",
+        )
 
     def log_message(self, fmt, *args):
         # Аккуратный лог запросов в консоли.
@@ -181,9 +243,18 @@ class ContactsHandler(BaseHTTPRequestHandler):
 
 
 def main():
-    server = HTTPServer((HOST, PORT), ContactsHandler)
+    server = HTTPServer((HOST, PORT), MarketplaceHandler)
+
     print(f"Сервер запущен: http://{HOST}:{PORT}/")
-    print("GET — страница «Контакты», POST — данные формы в консоли. Ctrl+C — остановить.")
+    print("  /                — «Контакты»")
+    print("  /index.html      — главная")
+    print("  /catalog.html    — каталог")
+    print("  /favorites.html  — избранное")
+    print("  /orders.html     — заказы")
+    print("  /profile.html    — профиль")
+    print("  /seller.html     — страница автора")
+    print("Неизвестный адрес — тоже «Контакты». POST печатает данные в консоли.")
+    print("Ctrl+C — остановить.")
 
     try:
         server.serve_forever()

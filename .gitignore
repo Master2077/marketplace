@@ -198,3 +198,8 @@ cython_debug/
 lesson.py
 pyproject.toml
 #tests/
+
+# Базы данных SQLite
+*.sqlite
+*.sqlite3
+*.db
