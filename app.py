@@ -26,20 +26,20 @@ HOST = "127.0.0.1"
 PORT = 8000
 
 BASE_DIR = Path(__file__).resolve().parent
-INDEX_FILE = BASE_DIR / "index.html"
-CONTACTS_FILE = BASE_DIR / "contacts.html"
+INDEX_FILE = BASE_DIR / "home" / "templates" / "home" / "index.html"
+CONTACTS_FILE = BASE_DIR / "contacts" / "templates" / "contacts" / "contacts.html"
 
 # Маршруты страниц. Именно этот словарь и есть «маршрутизация»:
 # по адресу из строки браузера выбирается конкретный файл.
 PAGES = {
     "/": INDEX_FILE,
     "/index.html": INDEX_FILE,
-    "/contacts.html": BASE_DIR / "contacts.html",
-    "/catalog.html": BASE_DIR / "catalog.html",
-    "/favorites.html": BASE_DIR / "favorites.html",
-    "/orders.html": BASE_DIR / "orders.html",
-    "/profile.html": BASE_DIR / "profile.html",
-    "/seller.html": BASE_DIR / "seller.html",
+    "/contacts.html": CONTACTS_FILE,
+    "/catalog.html": BASE_DIR / "catalog" / "templates" / "catalog" / "catalog.html",
+    "/favorites.html": BASE_DIR / "favorites" / "templates" / "favorites" / "favorites.html",
+    "/orders.html": BASE_DIR / "orders" / "templates" / "orders" / "orders.html",
+    "/profile.html": BASE_DIR / "user_profile" / "templates" / "user_profile" / "profile.html",
+    "/seller.html": BASE_DIR / "seller" / "templates" / "seller" / "seller.html",
 }
 
 # Типы файлов, которые сервер умеет отдавать.

@@ -45,7 +45,12 @@
         <h2 class="panel-title" id="form-title">Написать нам</h2>
         <p class="panel-hint">Заполните форму — мы свяжемся с вами по указанной почте.</p>
 
-        <form id="contactForm" method="post" action="/">
+        {% if success %}
+        <p class="panel-hint" style="color: #65c98a;">Сообщение отправлено. Спасибо, мы свяжемся с вами.</p>
+        {% endif %}
+
+        <form id="contactForm" method="post">
+          {% csrf_token %}
           <div class="form-field">
             <label for="contactName">Имя</label>
             <input class="dark-control" id="contactName" name="name" type="text" placeholder="Как к вам обращаться" required>
