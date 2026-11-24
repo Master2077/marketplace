@@ -1,7 +1,8 @@
 """Курсовое задание: веб-приложение MarketPlace с приёмом GET и POST.
 
 GET:
-    /                  — страница «Контакты» (как требует задание);
+    /                  — главная страница;
+    /contacts.html     — страница «Контакты»;
     /index.html и др.  — остальные страницы макета;
     /css/...           — стили страниц;
     неизвестный адрес  — снова страница «Контакты».
@@ -25,14 +26,15 @@ HOST = "127.0.0.1"
 PORT = 8000
 
 BASE_DIR = Path(__file__).resolve().parent
+INDEX_FILE = BASE_DIR / "index.html"
 CONTACTS_FILE = BASE_DIR / "contacts.html"
 
 # Маршруты страниц. Именно этот словарь и есть «маршрутизация»:
 # по адресу из строки браузера выбирается конкретный файл.
 PAGES = {
-    "/": CONTACTS_FILE,
-    "/contacts.html": CONTACTS_FILE,
-    "/index.html": BASE_DIR / "index.html",
+    "/": INDEX_FILE,
+    "/index.html": INDEX_FILE,
+    "/contacts.html": BASE_DIR / "contacts.html",
     "/catalog.html": BASE_DIR / "catalog.html",
     "/favorites.html": BASE_DIR / "favorites.html",
     "/orders.html": BASE_DIR / "orders.html",
@@ -129,7 +131,7 @@ RESULT_PAGE = """<!DOCTYPE html>
     <h1>Сообщение получено</h1>
     <p>Данные отправлены на сервер и выведены в консоли.</p>
     <dl>{rows}</dl>
-    <a href="/">← Вернуться на страницу «Контакты»</a>
+    <a href="/contacts.html">← Вернуться на страницу «Контакты»</a>
   </main>
 </body>
 </html>
@@ -174,11 +176,7 @@ class MarketplaceHandler(BaseHTTPRequestHandler):
 
         # Остальные файлы (css, картинки) — если лежат внутри папки проекта.
         candidate = (BASE_DIR / path.lstrip("/")).resolve()
-        if (
-            candidate.is_file()
-            and candidate.is_relative_to(BASE_DIR)
-            and candidate.suffix.lower() in MIME_TYPES
-        ):
+        if candidate.is_file() and candidate.is_relative_to(BASE_DIR) and candidate.suffix.lower() in MIME_TYPES:
             return candidate
 
         # Неизвестный адрес — страница «Контакты» (условие задания).
@@ -229,8 +227,7 @@ class MarketplaceHandler(BaseHTTPRequestHandler):
         #    Значения экранируются: пользовательский текст не может
         #    превратиться в HTML-тег или скрипт.
         rows = "".join(
-            f"<dt>{escape(FIELD_LABELS.get(key, key))}</dt><dd>{escape(value)}</dd>"
-            for key, value in fields
+            f"<dt>{escape(FIELD_LABELS.get(key, key))}</dt><dd>{escape(value)}</dd>" for key, value in fields
         )
         self.send_body(
             RESULT_PAGE.replace("{rows}", rows).encode("utf-8"),
@@ -246,7 +243,8 @@ def main():
     server = HTTPServer((HOST, PORT), MarketplaceHandler)
 
     print(f"Сервер запущен: http://{HOST}:{PORT}/")
-    print("  /                — «Контакты»")
+    print("  /                — главная")
+    print("  /contacts.html   — «Контакты»")
     print("  /index.html      — главная")
     print("  /catalog.html    — каталог")
     print("  /favorites.html  — избранное")
