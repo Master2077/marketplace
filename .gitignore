@@ -105,7 +105,6 @@ ipython_config.py
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
 #   commonly ignored for libraries.
 #   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-poetry.lock
 poetry.toml
 
 # pdm
@@ -130,6 +129,8 @@ celerybeat.pid
 
 # Environments
 .env
+.env.*
+!.env.example
 .venv
 env/
 venv/
@@ -196,7 +197,6 @@ cython_debug/
 
 .flake8
 lesson.py
-pyproject.toml
 #tests/
 
 # Базы данных SQLite
