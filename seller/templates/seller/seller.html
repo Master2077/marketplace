@@ -1,3 +1,4 @@
+{% load static %}
 
 <!doctype html>
 <html lang="ru">
@@ -12,28 +13,28 @@
   >
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-  <link href="css/common.css" rel="stylesheet">
-  <link href="css/seller.css" rel="stylesheet">
+  <link href="{% static 'css/common.css' %}" rel="stylesheet">
+  <link href="{% static 'css/seller.css' %}" rel="stylesheet">
 </head>
 
 <body>
   <!-- Боковая навигация — единая для всех страниц проекта -->
   <aside class="sidebar">
-    <a class="brand" href="index.html"><span class="brand-mark"><i class="bi bi-bag-fill"></i></span>MarketPlace</a>
+    <a class="brand" href="{% url 'home' %}"><span class="brand-mark"><i class="bi bi-bag-fill"></i></span>MarketPlace</a>
     <div class="side-label">Магазин</div>
     <nav>
-      <a class="nav-link-custom" href="index.html"><i class="bi bi-house"></i><span>Главная</span></a>
-      <a class="nav-link-custom" href="catalog.html"><i class="bi bi-grid"></i><span>Каталог</span></a>
-      <a class="nav-link-custom" href="favorites.html"><i class="bi bi-heart"></i><span>Избранное</span></a>
-      <a class="nav-link-custom" href="orders.html"><i class="bi bi-box-seam"></i><span>Мои заказы</span></a>
+      <a class="nav-link-custom" href="{% url 'home' %}"><i class="bi bi-house"></i><span>Главная</span></a>
+      <a class="nav-link-custom" href="{% url 'catalog' %}"><i class="bi bi-grid"></i><span>Каталог</span></a>
+      <a class="nav-link-custom" href="{% url 'favorites' %}"><i class="bi bi-heart"></i><span>Избранное</span></a>
+      <a class="nav-link-custom" href="{% url 'orders' %}"><i class="bi bi-box-seam"></i><span>Мои заказы</span></a>
     </nav>
     <div class="side-label mt-3">Аккаунт</div>
     <nav>
-      <a class="nav-link-custom" href="profile.html"><i class="bi bi-person-circle"></i><span>Профиль</span></a>
-      <a class="nav-link-custom active" href="seller.html"><i class="bi bi-shop"></i><span>Страница автора</span></a>
+      <a class="nav-link-custom" href="{% url 'user_profile' %}"><i class="bi bi-person-circle"></i><span>Профиль</span></a>
+      <a class="nav-link-custom active" href="{% url 'seller' %}"><i class="bi bi-shop"></i><span>Страница автора</span></a>
     </nav>
     <div class="sidebar-bottom">
-      <a class="footer-link" href="contacts.html"><i class="bi bi-envelope"></i><span>Контакты</span></a>
+      <a class="footer-link" href="{% url 'contacts' %}"><i class="bi bi-envelope"></i><span>Контакты</span></a>
       <div class="copyright">© 2026 Marketplace<br>Покупайте у любимых авторов</div>
     </div>
   </aside>
